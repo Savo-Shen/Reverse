@@ -1,0 +1,14 @@
+# Python 缓存
+__pycache__/
+
+# 后端忽略文件
+Reverse-Backend/imgs/
+Reverse-Backend/local/
+Reverse-Backend/volc-sdk-python/
+
+# iOS 和 Vision Pro 项目资源
+Reverse-iOS/Assets/
+Reverse-Vision Pro\(Rebuild\)/Assets/
+
+# macOS 系统文件
+.DS_Store

@@ -1,0 +1,48 @@
+{
+  "originHash" : "627b32efa919340081acc4ba4df1e075a6a097de25ade0773d23b4c092a6c6da",
+  "pins" : [
+    {
+      "identity" : "logmanager",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/martinmaly21/LogManager",
+      "state" : {
+        "revision" : "43246309d90d7754a5e9afec82eed5fa4eeb1a1d"
+      }
+    },
+    {
+      "identity" : "soundmanager",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/martinmaly21/SoundManager",
+      "state" : {
+        "revision" : "9b0100240d5364b545c1be3f610987de200f4780"
+      }
+    },
+    {
+      "identity" : "swiftletutilities",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/martinmaly21/SwiftletUtilities",
+      "state" : {
+        "revision" : "36b64e715a46117abb05f04ee32b5d6045b726ec"
+      }
+    },
+    {
+      "identity" : "swiftuipanoramaviewer",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/martinmaly21/SwiftUIPanoramaViewer",
+      "state" : {
+        "branch" : "main",
+        "revision" : "62fe64f3b901bbdf11dc33a71e21434564a44feb"
+      }
+    },
+    {
+      "identity" : "swifty360player",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/abdullahselek/Swifty360Player.git",
+      "state" : {
+        "revision" : "a3a9249e34ce1bdcfa20c0780fdbec26a6396ddb",
+        "version" : "0.2.7"
+      }
+    }
+  ],
+  "version" : 3
+}
