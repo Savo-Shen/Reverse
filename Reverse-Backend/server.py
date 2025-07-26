@@ -2,7 +2,7 @@
 Author: Savo Shen savo_shen@qq.com
 Date: 2025-07-24 16:22:00
 LastEditors: Savo Shen savo_shen@qq.com
-LastEditTime: 2025-07-27 01:22:12
+LastEditTime: 2025-07-27 03:59:14
 FilePath: /Python/Users/savo_shen/Programs/Reverse/Reverse-Backend/server.py
 Description: 这个文件也帅到被人砍
 不会打球的吉他手不是好程序员
@@ -96,7 +96,7 @@ def get_ai_image_request():
     year = data.get('year')
     sid = data.get('sid')
 
-    # result = [f for f in os.listdir(f'./imgs/{sid}') if f != '.DS_Store']
+    # # result = [f for f in os.listdir(f'./imgs/{sid}') if f != '.DS_Store']
 
     image = cv2.imread(f'./imgs/{sid}/{year}/horizontal.jpg')
     # 将图片编码为 base64 字符串
@@ -119,7 +119,7 @@ def get_ai_image_request():
             break
 
     print("生成的视频URL:", video_url)
-
+    # video_url = "http://MacBook-Pro-M1-Max.local:5001/mock_video"  # 模拟返回视频URL
     return jsonify({
         'video_url': video_url,
     })
