@@ -2,8 +2,8 @@
 Author: Savo Shen savo_shen@qq.com
 Date: 2025-07-26 17:26:30
 LastEditors: Savo Shen savo_shen@qq.com
-LastEditTime: 2025-07-26 19:20:01
-FilePath: /Python/图片合成全景图/image_to_ai.py
+LastEditTime: 2025-07-27 02:41:33
+FilePath: /Python/Users/savo_shen/Programs/Reverse/Reverse-Backend/image_to_ai.py
 Description: 这个文件也帅到被人砍
 不会打球的吉他手不是好程序员
 Copyright (c) 2025 by Savo_Shen, All Rights Reserved. 
@@ -20,8 +20,8 @@ import time
 
 visual_service = VisualService()
 
-visual_service.set_ak('AKLTOTM2YWEwYTViMTY2NDVjMDkxYzk5MjZjOTBjODY1Nzc')
-visual_service.set_sk('WWpJMFpUaGtOR0V4TkdGa05EWmlNemhpTTJFelpHTmlaREUwTW1FeFlXTQ==')
+visual_service.set_ak('')
+visual_service.set_sk('')
     
 def image_to_ai_request(image_base64):
 
