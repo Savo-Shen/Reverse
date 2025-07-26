@@ -8,7 +8,7 @@ Reverse-Backend/volc-sdk-python/
 
 # iOS 和 Vision Pro 项目资源
 Reverse-iOS/Assets/
-Reverse-Vision Pro\(Rebuild\)/Assets/
+"Reverse-Vision Pro\(Rebuild\)/Assets/"
 
 # 忽略大视频文件
 *.mov
@@ -19,7 +19,8 @@ Reverse-Vision Pro\(Rebuild\)/Assets/
 # 或者具体路径
 Reverse-iOS/Reverse/Assets/洪崖洞.mov
 Reverse-iOS/Reverse/Assets/东方明珠.mov
-Reverse-Vision Pro/Reverse/video1.mp4
+"Reverse-Vision Pro/Reverse/video1.mp4"
+"Reverse-Vision Pro/Reverse/video2.mp4"
 
 # macOS 系统文件
 .DS_Store
