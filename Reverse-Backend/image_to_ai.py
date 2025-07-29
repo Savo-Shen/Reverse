@@ -2,7 +2,7 @@
 Author: Savo Shen savo_shen@qq.com
 Date: 2025-07-26 17:26:30
 LastEditors: Savo Shen savo_shen@qq.com
-LastEditTime: 2025-07-27 02:41:33
+LastEditTime: 2025-07-27 04:35:23
 FilePath: /Python/Users/savo_shen/Programs/Reverse/Reverse-Backend/image_to_ai.py
 Description: 这个文件也帅到被人砍
 不会打球的吉他手不是好程序员
@@ -18,11 +18,16 @@ import cv2
 import base64
 import time
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 visual_service = VisualService()
 
-visual_service.set_ak('')
-visual_service.set_sk('')
-    
+visual_service.set_ak(os.getenv('ak'))
+visual_service.set_sk(os.getenv('sk'))
+
 def image_to_ai_request(image_base64):
 
     # call below method if you don't set ak and sk in $HOME/.volc/config
