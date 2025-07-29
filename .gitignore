@@ -13,6 +13,7 @@ Reverse-iOS/Assets/
 # 忽略大视频文件
 *.mov
 *.mp4
+*.m4v
 
 *.env
 
