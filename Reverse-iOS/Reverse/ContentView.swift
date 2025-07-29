@@ -50,6 +50,7 @@ struct ContentView: View {
                     ) {
                         selectedCityIndex = nil
                     }
+                    .padding(.top, 50)
                     
                     ZStack {
                         VStack(spacing: 15) {
@@ -131,6 +132,7 @@ struct ContentView: View {
                     
                     NavigationLink {
                         TapMapView(tappedCoordinate: $tappedCoordinate)
+                            .environmentObject(reverseManager)
                     } label: {
                         ZStack {
                             LiquidGlassView()
@@ -166,6 +168,7 @@ struct ContentView: View {
                     .onChange(of: valueMonitor.locationChangeTrigger) { oldValue, newValue in
                         longitude = String(tappedCoordinate!.longitude)
                         latitude = String(tappedCoordinate!.latitude)
+                        print("经度: \(longitude), 纬度: \(latitude)")
                         self.runVisit(lo: longitude, la: latitude, year: "", sid: "-1")
                         self.runEffect()
                     }
