@@ -13,7 +13,7 @@ struct MapView: UIViewRepresentable {
 
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
-        mapView.mapType = .standard
+        mapView.mapType = .hybrid
         
         let tapGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleTap(_:)))
         mapView.addGestureRecognizer(tapGesture)
@@ -91,6 +91,7 @@ struct MapView: UIViewRepresentable {
 
 struct TapMapView: View {
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject private var reverseManager: ReverseManager
     @StateObject private var locationManager = LocationManager()
     @Binding var tappedCoordinate: CLLocationCoordinate2D?
     
@@ -124,6 +125,30 @@ struct TapMapView: View {
                         .clipShape(Capsule())
                         .shadow(color: Color("ButtonColor").opacity(0.3), radius: 8, x: 0, y: 4)
                 }
+                
+                if reverseManager.mapViewModel.videoGenerateStatus == .videoReady {
+                    Button {
+                        tappedCoordinate?.latitude = reverseManager.savedLatitude
+                        tappedCoordinate?.longitude = reverseManager.savedLongitude
+                        ValueMonitor.shared.locationChangeTrigger += 1
+                    } label: {
+                        Text("回到之前的位置")
+                            .font(.system(size: 18, weight: .bold))
+                            .padding(.horizontal, 40)
+                            .padding(.vertical, 16)
+                            .foregroundStyle(.black)
+                            .background(
+                                LinearGradient(
+                                    colors: [Color("ButtonColor"), Color("ButtonColor").opacity(0.8)],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
+                            .clipShape(Capsule())
+                            .shadow(color: Color("ButtonColor").opacity(0.3), radius: 8, x: 0, y: 4)
+                    }
+                }
+
             }
         }
         .navigationBarBackButtonHidden()
@@ -134,6 +159,7 @@ struct TapMapView: View {
                         tappedCoordinate = current
                     }
                     dismiss()
+                    reverseManager.trueIsPhotoFalseIsVideo = true
                 }) {
                     Image(systemName: "chevron.left")
                         .font(.title3)
@@ -152,6 +178,17 @@ struct TapMapView: View {
                 tappedCoordinate = location
             }
         }
+        .onChange(of: tappedCoordinate?.latitude) { _, _ in
+            updateCoordinates()
+        }
+        .onChange(of: tappedCoordinate?.longitude) { _, _ in
+            updateCoordinates()
+        }
+        
+    }
+    private func updateCoordinates() {
+        reverseManager.mapViewModel.lastLatitude = tappedCoordinate?.latitude ?? 0
+        reverseManager.mapViewModel.lastLongitude = tappedCoordinate?.longitude ?? 0
         
     }
 }

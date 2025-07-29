@@ -24,10 +24,23 @@ struct VideoView: View {
     }
 
     private func updatePlayer() {
-        guard let url = Bundle.main.url(forResource: reverseManager.videoUrl, withExtension: "mov") else {
-            print("视频资源未找到")
-            return
+
+        let url: URL
+        print("当前所在" + reverseManager.videoUrl)
+
+        if reverseManager.videoUrl.isEmpty,
+           let mapUrl = reverseManager.mapViewModel.videoUrl {
+            url = mapUrl
+        } else {
+            guard let bundleUrl = Bundle.main.url(forResource: reverseManager.videoUrl, withExtension: "mov") else {
+                print("视频资源未找到")
+                return
+            }
+            url = bundleUrl
         }
+        
+        print("视频URL: \(url)")
+        
         playerWrapper.player.replaceCurrentItem(with: AVPlayerItem(url: url))
         playerWrapper.player.play()
     }

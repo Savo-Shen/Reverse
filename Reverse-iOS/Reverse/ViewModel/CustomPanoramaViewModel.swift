@@ -9,15 +9,14 @@ import Foundation
 import SwiftUI
 import PhotosUI
 
-@Observable
-class CustomPanoramaViewModel {
-    var selectedImages: [UIImage] = []
-    var photoPickerItems: [PhotosPickerItem] = []
-    var panoramaImage: UIImage?
-    var isLoading: Bool = false
-    var errorMessage: String?
-    var uploadProgress: Double = 0.0
-    var showPanorama: Bool = false
+class CustomPanoramaViewModel: ObservableObject {
+    @Published var selectedImages: [UIImage] = []
+    @Published var photoPickerItems: [PhotosPickerItem] = []
+    @Published var panoramaImage: UIImage?
+    @Published var isLoading: Bool = false
+    @Published var errorMessage: String?
+    @Published var uploadProgress: Double = 0.0
+    @Published var showPanorama: Bool = false
     
     private let urlSession = URLSession.shared
     private let maxImages = 8
